@@ -13,27 +13,42 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MatJek
-description: > # this means to ignore newlines until "baseurl:"
-  Material theme based on <a href="http://materializecss.com">Materialize.css</a> for jekyll sites
-baseurl: "/matjek"
-url: "https://shawnteoh.github.io"
-permalink: /:year/:month/:day/:title
-repository: ShawnTeoh/matjek
-paginate: 5
+title: 保安小宇
+subtitle: 宇保安的个人博客
+description: >- #
+  宇哥的个人博客: 带你摆
+baseurl: ""
+url: "https://wospan.github.io"
+repository: monkey-soft
+# 文章链接格式, 伪 /%post_id.html%/
+permalink: /:short_year:i_month:i_day.html
+# permalink: /:year/:month/:day/:title
+# 分页, 每页显示文章数
+paginate: 15
+paginate_path: /page:num
+# 设置时区, 默认本地操作系统时间
+timezone: Asia/Shanghai
 
-# MatJek specific configurations
-github_profile: "https://github.com/ShawnTeoh"
-user: "John Doe"
-user_email: "john@doe.com"
-contact_url: "https://goo.gl/tVljbV"
-google_tracking_id: "UA-96359860-1"
-google_site_verification: "UA-96359860-1"
-disqus_shortname: "matjek"
+# 个人信息配置
+github_profile: "https://github.com/wospan"
+user: "下宇了"
+user_email: "1729626840@qq.com"
+#contact_url: "https://wospan.github.io"
+
+# 统计
+# Analytics settings
+# google_tracking_id: ""
+# google_site_verification: ""
+
+# 评论系统
+#disqus_shortname: ""
+
+# Gems
+plugins: [jekyll-paginate]
 
 # Build settings
 markdown: kramdown
-gems:
+plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
