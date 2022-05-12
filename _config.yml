@@ -19,7 +19,7 @@ description: >- #
   宇哥的个人博客: 带你摆
 baseurl: ""
 url: "https://wospan.github.io"
-repository: wospan
+repository: monkey-soft
 # 文章链接格式, 伪 /%post_id.html%/
 permalink: /:short_year:i_month:i_day.html
 # permalink: /:year/:month/:day/:title
