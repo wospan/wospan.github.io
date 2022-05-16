@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Hexo</title>
+  <meta name="description" content="title: this is my first blog php的魔法函数PHP中把以两个下划线__开头的方法称为魔术方法(Magic methods)1.__construct()  类的构造函数构造方法 php中构造方法是对象创建完成后第一个被对象自动调用的方法。在每个类中都有一个构造方法，如果没有显示地声明它，那么类中都会默认存在一个没有参数且内容为空的构造方法。 被用来执行一些有用的初始化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="保安宇">
+<meta property="og:url" content="http://example.com/2022/05/16/php%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/index.html">
+<meta property="og:site_name" content="保安宇">
+<meta property="og:description" content="title: this is my first blog php的魔法函数PHP中把以两个下划线__开头的方法称为魔术方法(Magic methods)1.__construct()  类的构造函数构造方法 php中构造方法是对象创建完成后第一个被对象自动调用的方法。在每个类中都有一个构造方法，如果没有显示地声明它，那么类中都会默认存在一个没有参数且内容为空的构造方法。 被用来执行一些有用的初始化">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220428204855793.png">
+<meta property="article:published_time" content="2022-05-15T21:56:59.198Z">
+<meta property="article:modified_time" content="2022-05-16T00:13:41.604Z">
+<meta property="article:author" content="宇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/xaioyu/AppData/Roaming/Typora/typora-user-images/image-20220428204855793.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/05/16/php%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="保安宇" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/wospan" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">宇</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">宇的blog</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wospan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/16/ctfhub%E6%8A%80%E8%83%BD%E4%B9%A6misc%E6%9D%82%E9%A1%B9%20-%20%E5%89%AF%E6%9C%AC/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-15T21:57:22.199Z" itemprop="datePublished">2022-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/16/ctfhub%E6%8A%80%E8%83%BD%E6%A0%91web%E9%83%A8%E5%88%86%20-%20%E5%89%AF%E6%9C%AC/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-15T21:57:16.018Z" itemprop="datePublished">2022-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/16/php%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-15T21:56:59.198Z" itemprop="datePublished">2022-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-php的魔法函数 - 副本" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/05/16/php%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/" class="article-date">
+	  <time datetime="2022-05-15T21:56:59.198Z" itemprop="datePublished">2022-05-16</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/05/16/php%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>title: this is my first blog</p>
+<h1 id="php的魔法函数"><a href="#php的魔法函数" class="headerlink" title="php的魔法函数"></a>php的魔法函数</h1><h3 id="PHP中把以两个下划线-开头的方法称为魔术方法-Magic-methods"><a href="#PHP中把以两个下划线-开头的方法称为魔术方法-Magic-methods" class="headerlink" title="PHP中把以两个下划线__开头的方法称为魔术方法(Magic methods)"></a>PHP中把以两个下划线__开头的方法称为魔术方法(Magic methods)</h3><h3 id="1-construct-类的构造函数"><a href="#1-construct-类的构造函数" class="headerlink" title="1.__construct()  类的构造函数"></a>1.__construct()  类的构造函数</h3><p>构造方法</p>
+<p>php中构造方法是对象创建完成后第一个被对象自动调用的方法。在每个类中都有一个构造方法，如果没有显示地声明它，那么类中都会默认存在一个没有参数且内容为空的构造方法。</p>
+<p>被用来执行一些有用的初始化任务</p>
+<p>格式</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">__constrct</span>(<span class="params">[参数列表]</span>)&#123; 方法体 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在同一个类中只能声明一个构造方法</span><br><span class="line">开头为两个横线</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-destruct-类的析构函数"><a href="#2-destruct-类的析构函数" class="headerlink" title="2.__destruct()  类的析构函数"></a>2.__destruct()  类的析构函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">析构方法在PHP中并不是很常用，它属类中可选择的一部分，通常用来完成一些在对象销毁前的清理任务</span><br></pre></td></tr></table></figure>
+
+<p>注意：析构函数不能带有任何参数</p>
+<p>与构造函数相对应</p>
+<h2 id="3-call-，在对象中调用一个不可访问方法时调用"><a href="#3-call-，在对象中调用一个不可访问方法时调用" class="headerlink" title="3.__call()，在对象中调用一个不可访问方法时调用"></a>3.__call()，在对象中调用一个不可访问方法时调用</h2><p>有两个参数  $function_name自动接收不存在的方法名  $arguments以数组的方式接收不存在方法的多个参数</p>
+<p>命令格式</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function __call(string $function_name,<span class="built_in"> array </span>$arguments)</span><br><span class="line">&#123;</span><br><span class="line">    // 方法体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以避免调用方法不存在时 报错导致程序终止      __call()方法在调用的方法不存在时会自动调用，程序仍会继续执行下去。</p>
+<h2 id="4-callStatic-，用静态方式中调用一个不可访问方法时调用"><a href="#4-callStatic-，用静态方式中调用一个不可访问方法时调用" class="headerlink" title="4.__callStatic()，用静态方式中调用一个不可访问方法时调用"></a>4.__callStatic()，用静态方式中调用一个不可访问方法时调用</h2><p>同上</p>
+<h2 id="5-get-，获得一个类的成员变量时调用"><a href="#5-get-，获得一个类的成员变量时调用" class="headerlink" title="5.__get()，获得一个类的成员变量时调用"></a>5.__get()，获得一个类的成员变量时调用</h2><p>作用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在程序运行过程中，通过它可以在对象的外部获取私有成员属性的值。</span><br></pre></td></tr></table></figure>
+
+<p>在 php 面向对象编程中，类的成员属性被设定为 <code>private</code> 后，如果我们试图在外面调用它则会出现“不能访问某个私有属性”的错误。那么为了解决这个问题，我们可以使用魔术方法 <code>__get()</code>。</p>
+<h2 id="6-set-，设置一个类的成员变量时调用"><a href="#6-set-，设置一个类的成员变量时调用" class="headerlink" title="6.__set()，设置一个类的成员变量时调用"></a>6.__set()，设置一个类的成员变量时调用</h2><p>__set() 的作用：</p>
+<p>__set( $property, $value )&#96; 方法用来设置私有属性， 给一个未定义的属性赋值时，此方法会被触发，传递的参数是被设置的属性名和值。</p>
+<h2 id="7-isset-，当对不可访问属性调用isset-或empty-时调用"><a href="#7-isset-，当对不可访问属性调用isset-或empty-时调用" class="headerlink" title="7.__isset()，当对不可访问属性调用isset()或empty()时调用"></a>7.__isset()，当对不可访问属性调用isset()或empty()时调用</h2><p><strong><code>isset()</code>是测定变量是否设定用的函数，传入一个变量作为参数，如果传入的变量存在则传回true，否则传回false。</strong></p>
+<p>如果在一个对象外面使用<code>isset()</code>这个函数去测定对象里面的成员是否被设定可不可以用它</p>
+<p>分两种情况，如果对象里面成员是公有的，我们就可以使用这个函数来测定成员属性，如果是私有的成员属性，这个函数就不起作用了，原因就是因为私有的被封装了，在外部不可见。</p>
+<p>私有的成员属性 只要在类里面加上一个<code>__isset()</code>方法就可以了，当在类外部使用<code>isset()</code>函数来测定对象里面的私有成员是否被设定时，就会自动调用类里面的<code>__isset()</code>方法了帮我们完成这样的操作。</p>
+<p><strong>作用</strong></p>
+<p>__ isset()的作用：当对不可访问属性调用 isset() 或 empty() 时，__isset() 会被调用。</p>
+<h2 id="8-unset-，当对不可访问属性调用unset-时被调用。"><a href="#8-unset-，当对不可访问属性调用unset-时被调用。" class="headerlink" title="8.__unset()，当对不可访问属性调用unset()时被调用。"></a>8.__unset()，当对不可访问属性调用unset()时被调用。</h2><p><code>unset()</code>这个函数的作用是删除指定的变量且传回true，参数为要删除的变量。</p>
+<p>使用也是分两种情况：</p>
+<p>1、 如果一个对象里面的成员属性是公有的，就可以使用这个函数在对象外面删除对象的公有属性。</p>
+<p>2、 如果对象的成员属性是私有的，我使用这个函数就没有权限去删除。</p>
+<p>同样如果你在一个对象里面加上<code>__unset()</code>这个方法，就可以在对象的外部去删除对象的私有成员属性了。在对象里面加上了<code>__unset()</code>这个方法之后，在对象外部使用“unset()”函数删除对象内部的私有成员属性时，对象会自动调用<code>__unset()</code>函数来帮我们删除对象内部的私有成员属性。</p>
+<h2 id="9-sleep-，执行serialize-时，先会调用这个函数"><a href="#9-sleep-，执行serialize-时，先会调用这个函数" class="headerlink" title="9.__sleep()，执行serialize()时，先会调用这个函数"></a>9.__sleep()，执行serialize()时，先会调用这个函数</h2><p><strong>serialize()</strong>   序列化函数</p>
+<p><code>serialize()</code> 函数会检查类中是否存在一个魔术方法 <code>__sleep()</code>。如果存在，则该方法会优先被调用，然后才执行序列化操作。</p>
+<p>此功能可以用于清理对象，并返回一个包含对象中所有应被序列化的变量名称的数组。</p>
+<p>如果该方法未返回任何内容，则 NULL 被序列化，并产生一个 E_NOTICE 级别的错误。</p>
+<p><strong>注意</strong></p>
+<p>__sleep() 不能返回父类的私有成员的名字。这样做会产生一个 E_NOTICE 级别的错误。可以用 Serializable 接口来替代。</p>
+<p>__sleep() 方法常用于提交未提交的数据，或类似的清理操作。同时，如果有一些很大的对象，但不需要全部保存，这个功能就很好用。</p>
+<h2 id="10-wakeup-，执行unserialize-时，先会调用这个函数"><a href="#10-wakeup-，执行unserialize-时，先会调用这个函数" class="headerlink" title="10.__wakeup()，执行unserialize()时，先会调用这个函数"></a>10.__wakeup()，执行unserialize()时，先会调用这个函数</h2><p>与serialize()对着</p>
+<p><code>unserialize()</code> 会检查是否存在一个 <code>__wakeup()</code> 方法。如果存在，则会先调用 <code>__wakeup</code> 方法，预先准备对象需要的资源。</p>
+<p>__wakeup() 经常用在反序列化操作中，例如重新建立数据库连接，或执行其它初始化操作。</p>
+<h2 id="11-toString-，类被当成字符串时的回应方法"><a href="#11-toString-，类被当成字符串时的回应方法" class="headerlink" title="11.__toString()，类被当成字符串时的回应方法"></a>11.__toString()，类被当成字符串时的回应方法</h2><p> echo $person;  （被当成自符串）</p>
+<p>__toString() 方法用于一个类被当成字符串时应怎样回应。例如 <code>echo $obj;</code> 应该显示些什么。</p>
+<p>此方法必须返回一个字符串，否则报错。</p>
+<p>不能在 __toString() 方法中抛出异常。这么做会导致错误。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">__toString</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">     </span>&#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="string">&#x27;go go go&#x27;</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-invoke-，调用函数的方式调用一个对象时的回应方法"><a href="#12-invoke-，调用函数的方式调用一个对象时的回应方法" class="headerlink" title="12.__invoke()，调用函数的方式调用一个对象时的回应方法"></a>12.__invoke()，调用函数的方式调用一个对象时的回应方法</h2><p>作用</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当尝试以调用函数的方式调用一个对象时，<span class="built_in">__invoke</span>() 方法会被自动调用。</span><br></pre></td></tr></table></figure>
+
+<p>注意点</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">本特性只在 PHP 5.3.0 及以上版本有效。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$person</span> = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;小明&#x27;</span>); <span class="comment">// 初始赋值</span></span><br><span class="line"><span class="variable">$person</span>();</span><br></pre></td></tr></table></figure>
+
+<p>被调用为对象</p>
+<h2 id="13-set-state-，调用var-export-导出类时，此静态方法会被调用。"><a href="#13-set-state-，调用var-export-导出类时，此静态方法会被调用。" class="headerlink" title="13.__set_state()，调用var_export()导出类时，此静态方法会被调用。"></a>13.__set_state()，调用var_export()导出类时，此静态方法会被调用。</h2><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">PHP</span> <span class="number">5.1</span><span class="number">.0</span> 起，当调用 var_ex<span class="keyword">port</span>() 导出类时，此静态方法会被自动调用。</span><br></pre></td></tr></table></figure>
+
+<p>__set_state()  5.1  之后会自动使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">__set_state</span>(<span class="params"><span class="variable">$an_array</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$a</span> = <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">        <span class="variable">$a</span>-&gt;name = <span class="variable">$an_array</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$a</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="14-clone-，当对象复制完成时调用"><a href="#14-clone-，当对象复制完成时调用" class="headerlink" title="14. __clone()，当对象复制完成时调用"></a>14. __clone()，当对象复制完成时调用</h2><p><img src="C:\Users\xaioyu\AppData\Roaming\Typora\typora-user-images\image-20220428204855793.png" alt="image-20220428204855793"></p>
+<p>作用</p>
+<p>对象复制可以通过 clone 关键字来完成（如果可能，这将调用对象的 __clone() 方法）。对象中的 __clone() 方法不能被直接调用。</p>
+<p>语法</p>
+<p>$copy_of_object &#x3D; clone $object;</p>
+<p>注意</p>
+<p>当对象被复制后，PHP 5 会对对象的所有属性执行一个浅复制（shallow copy）。所有的引用属性 仍然会是一个指向原来的变量的引用。</p>
+<p>当复制完成时，如果定义了 __clone() 方法，则新创建的对象（复制生成的对象）中的 __clone() 方法会被调用，可用于修改属性的值（如果有必要的话）。</p>
+<h3 id="十五、-autoload-，尝试加载未定义的类"><a href="#十五、-autoload-，尝试加载未定义的类" class="headerlink" title="十五、__autoload()，尝试加载未定义的类"></a>十五、__autoload()，尝试加载未定义的类</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot;</span><br><span class="line">          content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;?php</span><br><span class="line">//    class Person</span><br><span class="line">//    &#123;</span><br><span class="line">//        public $name;</span><br><span class="line">//        public $age;</span><br><span class="line">//        public $sex;</span><br><span class="line">//</span><br><span class="line">////        显示声明一个构造方法且带参数</span><br><span class="line">//        public function __construct($name=&quot;&quot;, $sex=&quot;男&quot;, $age=22)&#123;</span><br><span class="line">//            $this-&gt;name = $name;</span><br><span class="line">//            $this-&gt;sex = $sex;</span><br><span class="line">//            $this-&gt;age = $age;</span><br><span class="line">//        &#125;</span><br><span class="line">////say 方法</span><br><span class="line">//        public function say()&#123;</span><br><span class="line">//            echo &quot;我叫：&quot; . $this-&gt;name . &quot;，性别：&quot; . $this-&gt;sex . &quot;，年龄：&quot; . $this-&gt;age;</span><br><span class="line">//        &#125;</span><br><span class="line">//    &#125;</span><br><span class="line">//$Person1 = new Person();</span><br><span class="line">//echo $Person1-&gt;say(); //输出:我叫：，性别：男，年龄：22</span><br><span class="line">//echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">//$Person2 = new Person(&quot;小明&quot;);</span><br><span class="line">//echo $Person2-&gt;say(); //输出：我叫：小明，性别：男，年龄：22</span><br><span class="line">//echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">//$Person3 = new Person(&quot;李四&quot;,&quot;男&quot;,25);</span><br><span class="line">//echo $Person3-&gt;say(); //输出：我叫：李四，性别：男，年龄：25</span><br><span class="line"></span><br><span class="line">//class Person&#123;</span><br><span class="line">//</span><br><span class="line">//    public $name;</span><br><span class="line">//    public $age;</span><br><span class="line">//    public $sex;</span><br><span class="line">//</span><br><span class="line">//    public function __construct($name=&quot;&quot;, $sex=&quot;男&quot;, $age=22)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;sex  = $sex;</span><br><span class="line">//        $this-&gt;age  = $age;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    /**</span><br><span class="line">//     * say 说话方法</span><br><span class="line">//     */</span><br><span class="line">//    public function say()</span><br><span class="line">//    &#123;</span><br><span class="line">//        echo &quot;我叫：&quot;.$this-&gt;name.&quot;，性别：&quot;.$this-&gt;sex.&quot;，年龄：&quot;.$this-&gt;age;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    /**</span><br><span class="line">//     * 声明一个析构方法</span><br><span class="line">//     */</span><br><span class="line">//    public function __destruct()</span><br><span class="line">//    &#123;</span><br><span class="line">//        echo &quot;我觉得我还可以再抢救一下，我的名字叫&quot;.$this-&gt;name;</span><br><span class="line">//    &#125;</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$Person = new Person(&quot;小明&quot;);</span><br><span class="line">//unset($Person); //销毁上面创建的对象$Person</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    function run()&#123;</span><br><span class="line">//        echo &quot;老师好&lt;br&gt;&quot;;</span><br><span class="line">//    &#125;</span><br><span class="line">//    function say()</span><br><span class="line">//    &#123;</span><br><span class="line">//</span><br><span class="line">//        echo &quot;Hello, world!&lt;br&gt;&quot;;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    /**</span><br><span class="line">//     * 声明此方法用来处理调用对象中不存在的方法</span><br><span class="line">//     */</span><br><span class="line">//    function __call($funName, $arguments)</span><br><span class="line">//    &#123;</span><br><span class="line">//        echo &quot;你所调用的函数：&quot; . $funName . &quot;(参数：&quot; ;  // 输出调用不存在的方法名</span><br><span class="line">//        print_r($arguments); // 输出调用不存在的方法时的参数列表</span><br><span class="line">//        echo &quot;)不存在！&lt;br&gt;\n&quot;; // 结束换行</span><br><span class="line">//    &#125;</span><br><span class="line">//&#125;</span><br><span class="line">//$Person = new Person();</span><br><span class="line">//$Person-&gt;run(&quot;teacher&quot;); // 调用对象中不存在的方法，则自动调用了对象中的__call()方法</span><br><span class="line">//$Person-&gt;eat(&quot;小明&quot;, &quot;苹果&quot;);</span><br><span class="line">//$Person-&gt;say();</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    function say()</span><br><span class="line">//    &#123;</span><br><span class="line">//</span><br><span class="line">//        echo &quot;Hello, world!&lt;br&gt;&quot;;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    /**</span><br><span class="line">//     * 声明此方法用来处理调用对象中不存在的方法</span><br><span class="line">//     */</span><br><span class="line">//    public static function __callStatic($funName, $arguments)</span><br><span class="line">//    &#123;</span><br><span class="line">//        echo &quot;你所调用的静态方法：&quot; . $funName . &quot;(参数：&quot;;  // 输出调用不存在的方法名</span><br><span class="line">//        print_r($arguments); // 输出调用不存在的方法时的参数列表</span><br><span class="line">//        echo &quot;)不存在！&lt;br&gt;\n&quot;; // 结束换行</span><br><span class="line">//    &#125;</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$Person = new Person();</span><br><span class="line">//$Person::run(&quot;teacher&quot;); // 调用对象中不存在的方法，则自动调用了对象中的__call()方法</span><br><span class="line">//$Person::eat(&quot;小明&quot;, &quot;苹果&quot;);    //       :: 只访问静态成员</span><br><span class="line">//$Person-&gt;say();</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    private $name;</span><br><span class="line">//    private $age;</span><br><span class="line">//</span><br><span class="line">//    function __construct($name = &quot;&quot;, $age = 1)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;age = $age;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    /**</span><br><span class="line">//     * 在类中添加__get()方法，在直接获取属性值时自动调用一次，以属性名作为参数传入并处理</span><br><span class="line">//     * @param $propertyName</span><br><span class="line">//     *</span><br><span class="line">//     * @return int</span><br><span class="line">//     */</span><br><span class="line">//    public function __get($propertyName)</span><br><span class="line">//    &#123;</span><br><span class="line">//        if ($propertyName == &quot;age&quot;) &#123;</span><br><span class="line">//            if ($this-&gt;age &gt; 30) &#123;</span><br><span class="line">//                return $this-&gt;age - 10;</span><br><span class="line">//            &#125; else &#123;</span><br><span class="line">//                return $this-&gt;$propertyName;</span><br><span class="line">//            &#125;</span><br><span class="line">//        &#125; else &#123;</span><br><span class="line">//            return $this-&gt;$propertyName;</span><br><span class="line">//        &#125;</span><br><span class="line">//    &#125;</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$Person = new Person(&quot;小明&quot;, 70);   // 通过Person类实例化的对象，并通过构造方法为属性赋初值</span><br><span class="line">//echo &quot;姓名：&quot; . $Person-&gt;name . &quot;&lt;br&gt;&quot;;   // 直接访问私有属性name，自动调用了__get()方法可以间接获取</span><br><span class="line">//echo &quot;年龄：&quot; . $Person-&gt;age . &quot;&lt;br&gt;&quot;;    // 自动调用了__get()方法，根据对象本身的情况会返回不同的值</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    private $name;</span><br><span class="line">//    private $age;</span><br><span class="line">//</span><br><span class="line">//    public function __construct($name = &quot;&quot;, $age = 25)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;age = $age;</span><br><span class="line">//    &#125;</span><br><span class="line">//    /**</span><br><span class="line">//     * 声明魔术方法需要两个参数，真接为私有属性赋值时自动调用，并可以屏蔽一些非法赋值</span><br><span class="line">//     * @param $property</span><br><span class="line">//     * @param $value</span><br><span class="line">//     */</span><br><span class="line">//    public function __set($property, $value)</span><br><span class="line">//    &#123;</span><br><span class="line">//        if ($property == &quot;age&quot;) &#123;</span><br><span class="line">//            if ($value &gt; 150 || $value &lt; 0) &#123;</span><br><span class="line">//                return;</span><br><span class="line">//            &#125;</span><br><span class="line">//        &#125;</span><br><span class="line">//        $this-&gt;$property = $value;</span><br><span class="line">//    &#125;</span><br><span class="line">//    /**</span><br><span class="line">//     * 在类中声明说话的方法，将所有的私有属性说出</span><br><span class="line">//     */</span><br><span class="line">//    public function say()</span><br><span class="line">//    &#123;</span><br><span class="line">//        echo &quot;我叫&quot; . $this-&gt;name . &quot;，今年&quot; . $this-&gt;age . &quot;岁了&quot;;</span><br><span class="line">//    &#125;</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$Person = new Person(&quot;小明&quot;, 25); //注意，初始值将被下面所改变</span><br><span class="line">////自动调用了__set()函数，将属性名name传给第一个参数，将属性值”小红”传给第二个参数</span><br><span class="line">//$Person-&gt;name = &quot;小红&quot;;     //赋值成功。如果没有__set()，则出错。</span><br><span class="line">////自动调用了__set()函数，将属性名age传给第一个参数，将属性值26传给第二个参数</span><br><span class="line">//$Person-&gt;age = 16; //赋值成功</span><br><span class="line">//$Person-&gt;age = 160; //160是一个非法值，赋值失效</span><br><span class="line">//$Person-&gt;say();  //输出：我叫小红，今年16岁了</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    public $sex;</span><br><span class="line">//    private $name;</span><br><span class="line">//    private $age;</span><br><span class="line">//</span><br><span class="line">//    public function __construct($name = &quot;&quot;, $age = 25, $sex = &#x27;男&#x27;)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;age = $age;</span><br><span class="line">//        $this-&gt;sex = $sex;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    /**</span><br><span class="line">//     * @param $content</span><br><span class="line">//     *</span><br><span class="line">//     * @return bool</span><br><span class="line">//     */</span><br><span class="line">//    public function __isset($content)</span><br><span class="line">//    &#123;</span><br><span class="line">//        echo &quot;当在类外部使用isset()函数测定私有成员&#123;$content&#125;时，自动调用&lt;br&gt;&quot;;</span><br><span class="line">//        echo isset($this-&gt;$content);</span><br><span class="line">//    &#125;</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$person = new Person( &quot;小明&quot;, 25 ); // 初始赋值</span><br><span class="line">//echo isset($person-&gt;sex), &quot;&lt;br&gt;&quot;;</span><br><span class="line">//echo isset($person-&gt;name), &quot;&lt;br&gt;&quot;;</span><br><span class="line">//echo isset($person-&gt;age), &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    public $sex;</span><br><span class="line">//    private $name;</span><br><span class="line">//    private $age;</span><br><span class="line">//</span><br><span class="line">//    public function __construct($name = &quot;&quot;, $age = 25, $sex = &#x27;男&#x27;)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;age = $age;</span><br><span class="line">//        $this-&gt;sex = $sex;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    /**</span><br><span class="line">//     * @param $content</span><br><span class="line">//     *</span><br><span class="line">//     * @return bool</span><br><span class="line">//     */</span><br><span class="line">//    public function __unset($content)</span><br><span class="line">//    &#123;</span><br><span class="line">//        echo &quot;当在类外部使用unset()函数来删除私有成员时自动调用的&lt;br&gt;&quot;;</span><br><span class="line">//        echo isset($this-&gt;$content);</span><br><span class="line">//    &#125;</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$person = new Person(&quot;小明&quot;, 25); // 初始赋值</span><br><span class="line">//echo $person-&gt;sex,&quot;&lt;br&gt;&quot;;</span><br><span class="line">//unset($person-&gt;name);</span><br><span class="line">//unset($person-&gt;age);</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    public $sex;</span><br><span class="line">//    public $name;</span><br><span class="line">//    public $age;</span><br><span class="line">//</span><br><span class="line">//    public function __construct($name = &quot;&quot;, $age = 25, $sex = &#x27;男&#x27;)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;age = $age;</span><br><span class="line">//        $this-&gt;sex = $sex;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    /**</span><br><span class="line">//     * @return array</span><br><span class="line">//     */</span><br><span class="line">//    public function __sleep()</span><br><span class="line">//    &#123;</span><br><span class="line">//        echo &quot;当在类外部使用serialize()时会调用这里的__sleep()方法&lt;br&gt;&quot;;</span><br><span class="line">//        $this-&gt;name = base64_encode($this-&gt;name);</span><br><span class="line">//        return array(&#x27;name&#x27;, &#x27;age&#x27;); // 这里必须返回一个数值，里边的元素表示返回的属性名称</span><br><span class="line">//    &#125;</span><br><span class="line">//&#125;</span><br><span class="line">//$person = new Person(&#x27;小明&#x27;); // 初始赋值</span><br><span class="line">//echo serialize($person);</span><br><span class="line">//echo &#x27;&lt;br/&gt;&#x27;;</span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    public $sex;</span><br><span class="line">//    public $name;</span><br><span class="line">//    public $age;</span><br><span class="line">//</span><br><span class="line">//    public function __construct($name = &quot;&quot;, $age = 25, $sex = &#x27;男&#x27;)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;age = $age;</span><br><span class="line">//        $this-&gt;sex = $sex;</span><br><span class="line">//    &#125;</span><br><span class="line">//    /**</span><br><span class="line">//     * @return array</span><br><span class="line">//     */</span><br><span class="line">//    public function __sleep()</span><br><span class="line">//    &#123;</span><br><span class="line">//        echo &quot;当在类外部使用serialize()时会调用这里的__sleep()方法&lt;br&gt;&quot;;</span><br><span class="line">//        $this-&gt;name = base64_encode($this-&gt;name);</span><br><span class="line">//        return array(&#x27;name&#x27;, &#x27;age&#x27;); // 这里必须返回一个数值，里边的元素表示返回的属性名称</span><br><span class="line">//    &#125;</span><br><span class="line">//    /**</span><br><span class="line">//     * __wakeup</span><br><span class="line">//     */</span><br><span class="line">//    public function __wakeup()</span><br><span class="line">//    &#123;</span><br><span class="line">//        echo &quot;当在类外部使用unserialize()时会调用这里的__wakeup()方法&lt;br&gt;&quot;;</span><br><span class="line">//        $this-&gt;name = 2;</span><br><span class="line">//        $this-&gt;sex = &#x27;男&#x27;;</span><br><span class="line">//        // 这里不需要返回数组</span><br><span class="line">//    &#125;</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$person = new Person(&#x27;小明&#x27;); // 初始赋值</span><br><span class="line">//var_dump(serialize($person));</span><br><span class="line">//var_dump(unserialize(serialize($person)));</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    public $sex;</span><br><span class="line">//    public $name;</span><br><span class="line">//    public $age;</span><br><span class="line">//</span><br><span class="line">//    public function __construct($name = &quot;&quot;, $age = 25, $sex = &#x27;男&#x27;)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;age = $age;</span><br><span class="line">//        $this-&gt;sex = $sex;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    public function __toString()</span><br><span class="line">//    &#123;</span><br><span class="line">//        return &#x27;go go go&#x27;;</span><br><span class="line">//    &#125;</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$person = new Person(&#x27;小明&#x27;); // 初始赋值</span><br><span class="line">//var_dump($person);</span><br><span class="line">//echo $person;</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    public $sex;</span><br><span class="line">//    public $name;</span><br><span class="line">//    public $age;</span><br><span class="line">//</span><br><span class="line">//    public function __construct($name = &quot;&quot;, $age = 25, $sex = &#x27;男&#x27;)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;age = $age;</span><br><span class="line">//        $this-&gt;sex = $sex;</span><br><span class="line">//    &#125;</span><br><span class="line">//    public function __invoke()</span><br><span class="line">//    &#123;</span><br><span class="line">//       echo &#x27;这可是一个对象哦&#x27;;</span><br><span class="line">//    &#125;</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$person = new Person(&#x27;小明&#x27;); // 初始赋值</span><br><span class="line">//$person();</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    public $sex;</span><br><span class="line">//    public $name;</span><br><span class="line">//    public $age;</span><br><span class="line">//</span><br><span class="line">//    public function __construct($name=&quot;&quot;,  $age=25, $sex=&#x27;男&#x27;)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;age  = $age;</span><br><span class="line">//        $this-&gt;sex  = $sex;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    public static function __set_state($an_array)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $a = new Person();</span><br><span class="line">//        $a-&gt;name = $an_array[&#x27;name&#x27;];</span><br><span class="line">//        return $a;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$person = new Person(&#x27;小明&#x27;); // 初始赋值</span><br><span class="line">//$person-&gt;name = &#x27;小红&#x27;;</span><br><span class="line">//var_export($person);</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    public $sex;</span><br><span class="line">//    public $name;</span><br><span class="line">//    public $age;</span><br><span class="line">//</span><br><span class="line">//    public function __construct($name = &quot;&quot;, $age = 25, $sex = &#x27;男&#x27;)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;age = $age;</span><br><span class="line">//        $this-&gt;sex = $sex;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    public static function __set_state($an_array)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $a = new Person();</span><br><span class="line">//        $a-&gt;name = $an_array[&#x27;name&#x27;];</span><br><span class="line">//        return $a;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$person = new Person(&#x27;小明&#x27;); // 初始赋值</span><br><span class="line">//$person-&gt;name = &#x27;小红&#x27;;</span><br><span class="line">//var_export($person);</span><br><span class="line"></span><br><span class="line">//class Person</span><br><span class="line">//&#123;</span><br><span class="line">//    public $sex;</span><br><span class="line">//    public $name;</span><br><span class="line">//    public $age;</span><br><span class="line">//</span><br><span class="line">//    public function __construct($name = &quot;&quot;, $age = 25, $sex = &#x27;男&#x27;)</span><br><span class="line">//    &#123;</span><br><span class="line">//        $this-&gt;name = $name;</span><br><span class="line">//        $this-&gt;age = $age;</span><br><span class="line">//        $this-&gt;sex = $sex;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//    public function __clone()</span><br><span class="line">//    &#123;</span><br><span class="line">//        echo __METHOD__ . &quot;你正在克隆对象&lt;br&gt;&quot;;</span><br><span class="line">//    &#125;</span><br><span class="line">//</span><br><span class="line">//&#125;</span><br><span class="line">//</span><br><span class="line">//$person = new Person(&#x27;小明&#x27;); // 初始赋值</span><br><span class="line">//$person2 = clone $person;</span><br><span class="line">//</span><br><span class="line">//var_dump(&#x27;persion1:&#x27;);</span><br><span class="line">//var_dump($person);</span><br><span class="line">//echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line">//var_dump(&#x27;persion2:&#x27;);</span><br><span class="line">//var_dump($person2);</span><br><span class="line"></span><br><span class="line">?&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/05/16/php%E7%9A%84%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0%20-%20%E5%89%AF%E6%9C%AC/" title="" target="_blank" rel="external">http://example.com/2022/05/16/php的魔法函数 - 副本/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/wospan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/wospan" target="_blank"><span class="text-dark">宇</span><small class="ml-1x">宇的blog</small></a></h3>
+        <div>保安日记</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/05/16/ctfhub%E6%8A%80%E8%83%BD%E6%A0%91web%E9%83%A8%E5%88%86%20-%20%E5%89%AF%E6%9C%AC/" title="(no title)"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wospan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
