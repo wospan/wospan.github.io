@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Test1 - Baoa的日记</title><meta name="Description" content="Baoa的日记"><meta property="og:title" content="Test1" />
+<meta property="og:description" content="撒打算打算
+撒大声地
+sadas
+撒大声地
+啊实打实
+阿萨德as
+市大安市
+1、hvv面试
+2、cors跨域漏洞
+1、寻找cors漏洞的标准
+
+
+1
+
+
+修改`Origin:`，使得返回的HTTP字段中的`Access-Control-Allow-Origin: `出现你所输入的值，表明此网站存在CSOR漏洞
+
+
+2、什么是同源
+​	当两个页面是同源的时候，资源是可以直接进行交互的。但当两个页面来自不同的源却也想进行资源交互的话，就受到了同源策略的约束。那同源策略就是限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互
+​	通俗来说：同域不同路径
+3、什么是CORS
+​	跨域资源共享(CORS) 是一种机制，通过定义额外的HTTP头来使浏览器能够允许不同源之间的资源交互。
+HTTP 请求首部字段
+
+Origin: &lt;origin&gt; 表明预检请求或实际请求的源站。
+
+用于预检请求的HTTP请求首部字段（CORS预检请求详谈）：
+
+Access-Control-Request-Method: &lt;method&gt; 用于预检请求。其作用是。将实际请求所使用的 HTTP 方法告诉服务器。
+Access-Control-Request-Headers: &lt;field-name&gt;[, &lt;field-name&gt;]*用于预检请求。其作用是，将实际请求所携带的首部字段告诉服务器。
+
+HTTP 响应首部字段
+
+Access-Control-Allow-Origin: &lt;origin&gt; | * origin 参数的值指定了允许访问该资源的外域 URI。对于不需要携带身份凭证的请求，服务器可以指定该字段的值为通配符，表示允许来自所有域的请求。
+Access-Control-Expose-Headers: X-My-Custom-Header, X-Another-Custom-Header 让服务器把允许浏览器访问的头放入白名单，XMLHttpRequest对象就能够通过getResponseHeader访问到 X-My-Custom-Header和 X-Another-Custom-Header 响应头了。
+Access-Control-Max-Age: &lt;delta-seconds&gt; 指定了preflight请求的结果能够被缓存多久
+Access-Control-Allow-Credentials: true 指定了当浏览器的credentials设置为true时是否允许浏览器读取response的内容。
+
+用于预检请求的HTTP响应首部字段：
+
+Access-Control-Allow-Methods: &lt;method&gt;[, &lt;method&gt;]* 用于预检请求的响应。其指明了实际请求所允许使用的 HTTP 方法。
+Access-Control-Allow-Headers: &lt;field-name&gt;[, &lt;field-name&gt;]* 用于预检请求的响应。其指明了实际请求中允许携带的首部字段。
+
+一个简单的例子：
+这里跳过了预检请求，并且数据包也简化了。
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+
+
+请求数据包：
+POST /resources/post-here/ HTTP/1.1
+Host: example.com
+Origin: http://foo.example.com
+
+[post data]
+
+
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: http://foo.example.com
+Access-Control-Allow-Credentials: true
+
+[result]
+
+
+从上面的请求中可以看得出来，foo.example.com向example.com发送跨域请求，并且成功获取到数据。
+4、如何利用
+可绕过的域名校验
+当域名校验不是特别严格时，可以通过以下几种方式进行绕过：
+
+在后面加域名 qq.com =&gt; qq.com.abc.com
+将域名拼接 abc.qq.com =&gt; abc_qq.com
+在前面或者在后面加字符 qq.com =&gt; abcqq.com / qq.com =&gt; qq.comabc.com
+
+配合XSS进行利用
+当同源网站中存在一个xss漏洞时，就可以直接使用xss包含cors的payload进行利用。
+ps：我都xss了我要这跨域有啥用
+Safari浏览器的特殊性质
+当遇到这样的正则表达式所校验的域名时：(允许所有“target.local”的子域名的跨域请求，并且这些请求可以来自于子域名的任意端口)
+
+
+1
+
+
+^https?:\/\/(.*\.)?target.local([^\.\-a-zA-Z0-9]&#43;.*)?
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zz2summer.github.io/test1/" /><meta property="og:image" content="https://zz2summer.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-27T21:56:51&#43;08:00" />
+<meta property="article:modified_time" content="2021-03-27T21:56:51&#43;08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zz2summer.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Test1"/>
+<meta name="twitter:description" content="撒打算打算
+撒大声地
+sadas
+撒大声地
+啊实打实
+阿萨德as
+市大安市
+1、hvv面试
+2、cors跨域漏洞
+1、寻找cors漏洞的标准
+
+
+1
+
+
+修改`Origin:`，使得返回的HTTP字段中的`Access-Control-Allow-Origin: `出现你所输入的值，表明此网站存在CSOR漏洞
+
+
+2、什么是同源
+​	当两个页面是同源的时候，资源是可以直接进行交互的。但当两个页面来自不同的源却也想进行资源交互的话，就受到了同源策略的约束。那同源策略就是限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互
+​	通俗来说：同域不同路径
+3、什么是CORS
+​	跨域资源共享(CORS) 是一种机制，通过定义额外的HTTP头来使浏览器能够允许不同源之间的资源交互。
+HTTP 请求首部字段
+
+Origin: &lt;origin&gt; 表明预检请求或实际请求的源站。
+
+用于预检请求的HTTP请求首部字段（CORS预检请求详谈）：
+
+Access-Control-Request-Method: &lt;method&gt; 用于预检请求。其作用是。将实际请求所使用的 HTTP 方法告诉服务器。
+Access-Control-Request-Headers: &lt;field-name&gt;[, &lt;field-name&gt;]*用于预检请求。其作用是，将实际请求所携带的首部字段告诉服务器。
+
+HTTP 响应首部字段
+
+Access-Control-Allow-Origin: &lt;origin&gt; | * origin 参数的值指定了允许访问该资源的外域 URI。对于不需要携带身份凭证的请求，服务器可以指定该字段的值为通配符，表示允许来自所有域的请求。
+Access-Control-Expose-Headers: X-My-Custom-Header, X-Another-Custom-Header 让服务器把允许浏览器访问的头放入白名单，XMLHttpRequest对象就能够通过getResponseHeader访问到 X-My-Custom-Header和 X-Another-Custom-Header 响应头了。
+Access-Control-Max-Age: &lt;delta-seconds&gt; 指定了preflight请求的结果能够被缓存多久
+Access-Control-Allow-Credentials: true 指定了当浏览器的credentials设置为true时是否允许浏览器读取response的内容。
+
+用于预检请求的HTTP响应首部字段：
+
+Access-Control-Allow-Methods: &lt;method&gt;[, &lt;method&gt;]* 用于预检请求的响应。其指明了实际请求所允许使用的 HTTP 方法。
+Access-Control-Allow-Headers: &lt;field-name&gt;[, &lt;field-name&gt;]* 用于预检请求的响应。其指明了实际请求中允许携带的首部字段。
+
+一个简单的例子：
+这里跳过了预检请求，并且数据包也简化了。
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+
+
+请求数据包：
+POST /resources/post-here/ HTTP/1.1
+Host: example.com
+Origin: http://foo.example.com
+
+[post data]
+
+
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: http://foo.example.com
+Access-Control-Allow-Credentials: true
+
+[result]
+
+
+从上面的请求中可以看得出来，foo.example.com向example.com发送跨域请求，并且成功获取到数据。
+4、如何利用
+可绕过的域名校验
+当域名校验不是特别严格时，可以通过以下几种方式进行绕过：
+
+在后面加域名 qq.com =&gt; qq.com.abc.com
+将域名拼接 abc.qq.com =&gt; abc_qq.com
+在前面或者在后面加字符 qq.com =&gt; abcqq.com / qq.com =&gt; qq.comabc.com
+
+配合XSS进行利用
+当同源网站中存在一个xss漏洞时，就可以直接使用xss包含cors的payload进行利用。
+ps：我都xss了我要这跨域有啥用
+Safari浏览器的特殊性质
+当遇到这样的正则表达式所校验的域名时：(允许所有“target.local”的子域名的跨域请求，并且这些请求可以来自于子域名的任意端口)
+
+
+1
+
+
+^https?:\/\/(.*\.)?target.local([^\.\-a-zA-Z0-9]&#43;.*)?
+
+
+"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zz2summer.github.io/test1/" /><link rel="next" href="https://zz2summer.github.io/test3/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Test1",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zz2summer.github.io\/test1\/"
+        },"image": ["https:\/\/zz2summer.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "tag1, tag2","wordcount":  1133 ,
+        "url": "https:\/\/zz2summer.github.io\/test1\/","datePublished": "2021-03-27T21:56:51+08:00","dateModified": "2021-03-27T21:56:51+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Baoa的日记","logo": "https:\/\/zz2summer.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "渣渣的夏天"
+            },"description": ""
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Baoa的日记"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Baoa的日记</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/test1/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Baoa的日记"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Baoa的日记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/test1/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Test1</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>渣渣的夏天</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/cat1/"><i class="far fa-folder fa-fw"></i>cat1</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-27 21:56:51">2021-03-27 21:56:51</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1133 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1hvv面试">1、hvv面试</a></li>
+            <li><a href="#2cors跨域漏洞">2、cors跨域漏洞</a>
+              <ul>
+                <li>
+                  <ul>
+                    <li><a href="#1寻找cors漏洞的标准">1、寻找cors漏洞的标准</a></li>
+                    <li><a href="#2什么是同源">2、什么是同源</a></li>
+                    <li><a href="#3什么是cors">3、什么是CORS</a></li>
+                    <li><a href="#4如何利用">4、如何利用</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>撒打算打算</p>
+<p>撒大声地</p>
+<p>sadas</p>
+<p>撒大声地</p>
+<p>啊实打实</p>
+<p>阿萨德as</p>
+<p>市大安市</p>
+<h4 id="1hvv面试">1、hvv面试</h4>
+<h4 id="2cors跨域漏洞">2、cors跨域漏洞</h4>
+<h6 id="1寻找cors漏洞的标准">1、寻找cors漏洞的标准</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">修改<span class="sb">`</span>Origin:<span class="sb">`</span>，使得返回的HTTP字段中的<span class="sb">`</span>Access-Control-Allow-Origin: <span class="sb">`</span>出现你所输入的值，表明此网站存在CSOR漏洞
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="2什么是同源">2、什么是同源</h6>
+<p>​	当两个页面是同源的时候，资源是可以直接进行交互的。但当两个页面来自不同的源却也想进行资源交互的话，就受到了同源策略的约束。那<strong>同源策略</strong>就是限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互</p>
+<p>​	通俗来说：同域不同路径</p>
+<h6 id="3什么是cors">3、什么是CORS</h6>
+<p>​	跨域资源共享(CORS) 是一种机制，通过定义额外的HTTP头来使浏览器能够允许不同源之间的资源交互。</p>
+<p><strong>HTTP 请求首部字段</strong></p>
+<ul>
+<li><code>Origin: &lt;origin&gt;</code> 表明预检请求或实际请求的源站。</li>
+</ul>
+<p>用于预检请求的HTTP请求首部字段（<a href="https://www.cnblogs.com/wonyun/p/CORS_preflight.html" target="_blank" rel="noopener noreffer">CORS预检请求详谈</a>）：</p>
+<ul>
+<li><code>Access-Control-Request-Method: &lt;method&gt;</code> 用于预检请求。其作用是。将实际请求所使用的 HTTP 方法告诉服务器。</li>
+<li><code>Access-Control-Request-Headers: &lt;field-name&gt;[, &lt;field-name&gt;]*</code>用于预检请求。其作用是，将实际请求所携带的首部字段告诉服务器。</li>
+</ul>
+<p><strong>HTTP 响应首部字段</strong></p>
+<ul>
+<li><code>Access-Control-Allow-Origin: &lt;origin&gt; | *</code> origin 参数的值指定了允许访问该资源的外域 URI。对于不需要携带身份凭证的请求，服务器可以指定该字段的值为通配符，表示允许来自所有域的请求。</li>
+<li><code>Access-Control-Expose-Headers: X-My-Custom-Header, X-Another-Custom-Header</code> 让服务器把允许浏览器访问的头放入白名单，XMLHttpRequest对象就能够通过getResponseHeader访问到 <code>X-My-Custom-Header</code>和 <code>X-Another-Custom-Header</code> 响应头了。</li>
+<li><code>Access-Control-Max-Age: &lt;delta-seconds&gt;</code> 指定了preflight请求的结果能够被缓存多久</li>
+<li><code>Access-Control-Allow-Credentials: true</code> 指定了当浏览器的<code>credentials</code>设置为true时是否允许浏览器读取response的内容。</li>
+</ul>
+<p>用于预检请求的HTTP响应首部字段：</p>
+<ul>
+<li><code>Access-Control-Allow-Methods: &lt;method&gt;[, &lt;method&gt;]*</code> 用于预检请求的响应。其指明了实际请求所允许使用的 HTTP 方法。</li>
+<li><code>Access-Control-Allow-Headers: &lt;field-name&gt;[, &lt;field-name&gt;]*</code> 用于预检请求的响应。其指明了实际请求中允许携带的首部字段。</li>
+</ul>
+<p><strong>一个简单的例子：</strong></p>
+<p>这里跳过了预检请求，并且数据包也简化了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">请求数据包：
+POST /resources/post-here/ HTTP/1.1
+Host: example.com
+Origin: http://foo.example.com
+
+<span class="o">[</span>post data<span class="o">]</span>
+
+
+HTTP/1.1 <span class="m">200</span> OK
+Access-Control-Allow-Origin: http://foo.example.com
+Access-Control-Allow-Credentials: <span class="nb">true</span>
+
+<span class="o">[</span>result<span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>从上面的请求中可以看得出来，foo.example.com向example.com发送跨域请求，并且成功获取到数据。</p>
+<h6 id="4如何利用">4、如何利用</h6>
+<p><strong>可绕过的域名校验</strong></p>
+<p>当域名校验不是特别严格时，可以通过以下几种方式进行绕过：</p>
+<ul>
+<li>在后面加域名 qq.com =&gt; qq.com.abc.com</li>
+<li>将域名拼接 abc.qq.com =&gt; abc_qq.com</li>
+<li>在前面或者在后面加字符 qq.com =&gt; abcqq.com / qq.com =&gt; qq.comabc.com</li>
+</ul>
+<p><strong>配合XSS进行利用</strong></p>
+<p>当同源网站中存在一个xss漏洞时，就可以直接使用xss包含cors的payload进行利用。</p>
+<p>ps：我都xss了我要这跨域有啥用</p>
+<p><strong>Safari浏览器的特殊性质</strong></p>
+<p>当遇到这样的正则表达式所校验的域名时：(允许所有“target.local”的子域名的跨域请求，并且这些请求可以来自于子域名的任意端口)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">^https?:\/\/(.*\.)?target.local([^\.\-a-zA-Z0-9]+.*)?
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-03-27 21:56:51</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://zz2summer.github.io/test1/" data-title="Test1" data-hashtags="tag1,tag2"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://zz2summer.github.io/test1/" data-hashtag="tag1"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://zz2summer.github.io/test1/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://zz2summer.github.io/test1/" data-title="Test1"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zz2summer.github.io/test1/" data-title="Test1" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zz2summer.github.io/test1/" data-title="Test1"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/tag1/">tag1</a>,&nbsp;<a href="/tags/tag2/">tag2</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/test3/" class="next" rel="next" title="Test3">Test3<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Baoa</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

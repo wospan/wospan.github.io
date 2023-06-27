@@ -1,0 +1,150 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有文章 - Baoa的日记</title>
+        <link>https://zz2summer.github.io/posts/</link>
+        <description>所有文章 | Baoa的日记</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1729626840@qq.com (Baoa)</managingEditor>
+            <webMaster>1729626840@qq.com (Baoa)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 27 Jun 2023 00:52:36 &#43;0800</lastBuildDate><atom:link href="https://zz2summer.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Di2</title>
+    <link>https://zz2summer.github.io/di2/</link>
+    <pubDate>Tue, 27 Jun 2023 00:52:36 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://zz2summer.github.io/di2/</guid>
+    <description><![CDATA[<p>新建</p>]]></description>
+</item><item>
+    <title>2</title>
+    <link>https://zz2summer.github.io/2/</link>
+    <pubDate>Tue, 27 Jun 2023 00:03:23 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://zz2summer.github.io/2/</guid>
+    <description><![CDATA[<p>新建</p>]]></description>
+</item><item>
+    <title>1</title>
+    <link>https://zz2summer.github.io/1/</link>
+    <pubDate>Mon, 26 Jun 2023 23:46:12 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://zz2summer.github.io/1/</guid>
+    <description><![CDATA[<p>新建</p>]]></description>
+</item><item>
+    <title>First Post</title>
+    <link>https://zz2summer.github.io/first-post/</link>
+    <pubDate>Mon, 26 Jun 2023 23:17:52 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://zz2summer.github.io/first-post/</guid>
+    <description><![CDATA[<p>新建</p>]]></description>
+</item><item>
+    <title>Test3</title>
+    <link>https://zz2summer.github.io/test3/</link>
+    <pubDate>Sat, 27 Mar 2021 22:10:38 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://zz2summer.github.io/test3/</guid>
+    <description><![CDATA[<p>新建</p>]]></description>
+</item><item>
+    <title>Test1</title>
+    <link>https://zz2summer.github.io/test1/</link>
+    <pubDate>Sat, 27 Mar 2021 21:56:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://zz2summer.github.io/test1/</guid>
+    <description><![CDATA[<p>撒打算打算</p>
+<p>撒大声地</p>
+<p>sadas</p>
+<p>撒大声地</p>
+<p>啊实打实</p>
+<p>阿萨德as</p>
+<p>市大安市</p>
+<h4 id="1hvv面试">1、hvv面试</h4>
+<h4 id="2cors跨域漏洞">2、cors跨域漏洞</h4>
+<h6 id="1寻找cors漏洞的标准">1、寻找cors漏洞的标准</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">修改<span class="sb">`</span>Origin:<span class="sb">`</span>，使得返回的HTTP字段中的<span class="sb">`</span>Access-Control-Allow-Origin: <span class="sb">`</span>出现你所输入的值，表明此网站存在CSOR漏洞
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="2什么是同源">2、什么是同源</h6>
+<p>​	当两个页面是同源的时候，资源是可以直接进行交互的。但当两个页面来自不同的源却也想进行资源交互的话，就受到了同源策略的约束。那<strong>同源策略</strong>就是限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互</p>
+<p>​	通俗来说：同域不同路径</p>
+<h6 id="3什么是cors">3、什么是CORS</h6>
+<p>​	跨域资源共享(CORS) 是一种机制，通过定义额外的HTTP头来使浏览器能够允许不同源之间的资源交互。</p>
+<p><strong>HTTP 请求首部字段</strong></p>
+<ul>
+<li><code>Origin: &lt;origin&gt;</code> 表明预检请求或实际请求的源站。</li>
+</ul>
+<p>用于预检请求的HTTP请求首部字段（<a href="https://www.cnblogs.com/wonyun/p/CORS_preflight.html" target="_blank" rel="noopener noreffer">CORS预检请求详谈</a>）：</p>
+<ul>
+<li><code>Access-Control-Request-Method: &lt;method&gt;</code> 用于预检请求。其作用是。将实际请求所使用的 HTTP 方法告诉服务器。</li>
+<li><code>Access-Control-Request-Headers: &lt;field-name&gt;[, &lt;field-name&gt;]*</code>用于预检请求。其作用是，将实际请求所携带的首部字段告诉服务器。</li>
+</ul>
+<p><strong>HTTP 响应首部字段</strong></p>
+<ul>
+<li><code>Access-Control-Allow-Origin: &lt;origin&gt; | *</code> origin 参数的值指定了允许访问该资源的外域 URI。对于不需要携带身份凭证的请求，服务器可以指定该字段的值为通配符，表示允许来自所有域的请求。</li>
+<li><code>Access-Control-Expose-Headers: X-My-Custom-Header, X-Another-Custom-Header</code> 让服务器把允许浏览器访问的头放入白名单，XMLHttpRequest对象就能够通过getResponseHeader访问到 <code>X-My-Custom-Header</code>和 <code>X-Another-Custom-Header</code> 响应头了。</li>
+<li><code>Access-Control-Max-Age: &lt;delta-seconds&gt;</code> 指定了preflight请求的结果能够被缓存多久</li>
+<li><code>Access-Control-Allow-Credentials: true</code> 指定了当浏览器的<code>credentials</code>设置为true时是否允许浏览器读取response的内容。</li>
+</ul>
+<p>用于预检请求的HTTP响应首部字段：</p>
+<ul>
+<li><code>Access-Control-Allow-Methods: &lt;method&gt;[, &lt;method&gt;]*</code> 用于预检请求的响应。其指明了实际请求所允许使用的 HTTP 方法。</li>
+<li><code>Access-Control-Allow-Headers: &lt;field-name&gt;[, &lt;field-name&gt;]*</code> 用于预检请求的响应。其指明了实际请求中允许携带的首部字段。</li>
+</ul>
+<p><strong>一个简单的例子：</strong></p>
+<p>这里跳过了预检请求，并且数据包也简化了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">请求数据包：
+POST /resources/post-here/ HTTP/1.1
+Host: example.com
+Origin: http://foo.example.com
+
+<span class="o">[</span>post data<span class="o">]</span>
+
+
+HTTP/1.1 <span class="m">200</span> OK
+Access-Control-Allow-Origin: http://foo.example.com
+Access-Control-Allow-Credentials: <span class="nb">true</span>
+
+<span class="o">[</span>result<span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>从上面的请求中可以看得出来，foo.example.com向example.com发送跨域请求，并且成功获取到数据。</p>
+<h6 id="4如何利用">4、如何利用</h6>
+<p><strong>可绕过的域名校验</strong></p>
+<p>当域名校验不是特别严格时，可以通过以下几种方式进行绕过：</p>
+<ul>
+<li>在后面加域名 qq.com =&gt; qq.com.abc.com</li>
+<li>将域名拼接 abc.qq.com =&gt; abc_qq.com</li>
+<li>在前面或者在后面加字符 qq.com =&gt; abcqq.com / qq.com =&gt; qq.comabc.com</li>
+</ul>
+<p><strong>配合XSS进行利用</strong></p>
+<p>当同源网站中存在一个xss漏洞时，就可以直接使用xss包含cors的payload进行利用。</p>
+<p>ps：我都xss了我要这跨域有啥用</p>
+<p><strong>Safari浏览器的特殊性质</strong></p>
+<p>当遇到这样的正则表达式所校验的域名时：(允许所有“target.local”的子域名的跨域请求，并且这些请求可以来自于子域名的任意端口)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">^https?:\/\/(.*\.)?target.local([^\.\-a-zA-Z0-9]+.*)?
+</code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item></channel>
+</rss>
